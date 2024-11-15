@@ -1,0 +1,37 @@
+
+#
+# --------------------------------------------------------------------- #
+#
+#                   Infuse Skript Made By Spork3r
+#          Infuse SMP Plugin Revamped Plugin is by Infuse Team
+#               So shout outs to them for the plugin
+#
+#                       Sub to Spork3r Frfr
+#
+#           if editing code make sure to not remove this part
+#
+# --------------------------------------------------------------------- #
+#
+
+function Spork3rInfusePrimaryHeartEquipped(p: player):
+    if {Spork3r::Infuse::Primary::Heart::Health::%{_p}'s uuid%} is not true:
+        add 10 to {_p}'s minecraft:generic.max_health attribute
+        set {Spork3r::Infuse::Primary::Heart::Health::%{_p}'s uuid%} to true
+
+function Spork3rInfusePrimaryHeartSpark(p: player):
+    set {Spork3r::Infuse::Primary::Active::%{_p}'s uuid%} to true
+    set {Spork3r::Infuse::Primary::Seconds::%{_p}'s uuid%} to 30
+    set {Spork3r::Infuse::Primary::Minutes::%{_p}'s uuid%} to 0
+    add 10 to {_p}'s minecraft:generic.max_health attribute
+    wait 30 seconds
+    remove 10 from {_p}'s minecraft:generic.max_health attribute
+    if {_p} is not online:
+        set {Spork3r::Infuse::Primary::Heart::HealthSparkLeave::%{_p}'s uuid%} to true
+    set {Spork3r::Infuse::Primary::Active::%{_p}'s uuid%} to false
+    set {Spork3r::Infuse::Primary::Seconds::%{_p}'s uuid%} to 0
+    set {Spork3r::Infuse::Primary::Minutes::%{_p}'s uuid%} to 1
+on join:
+    if {Spork3r::Infuse::Primary::Heart::HealthSparkLeave::%{_p}'s uuid%} is true:
+        wait 1 tick
+        remove 10 from {_p}'s minecraft:generic.max_health attribute
+        delete {Spork3r::Infuse::Primary::Heart::HealthSparkLeave::%{_p}'s uuid%}

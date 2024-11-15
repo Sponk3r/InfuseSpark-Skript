@@ -1,0 +1,330 @@
+
+#
+# --------------------------------------------------------------------- #
+#
+#                   Infuse Skript Made By Spork3r
+#          Infuse SMP Plugin Revamped Plugin is by Infuse Team
+#               So shout outs to them for the plugin
+#
+#                       Sub to Spork3r Frfr
+#
+#           if editing code make sure to not remove this part
+#
+# --------------------------------------------------------------------- #
+#
+
+on load:
+    set {Spork3r::Infuse::Items::Support::Emerald} to potion of unbreaking 1 named "&aEmerald Effect" with lore "&9Support Effect" and "&7Grants &oHero of the Village III" and "" and "&9Spark Ability" and "&7Upgrades &oHero of the Village III &r&7to &o Hero of the Village ∞" and "" and "&8Duration: &390s &8Cooldown: &3300s"  with all item flags
+    color {Spork3r::Infuse::Items::Support::Emerald} light green
+    register shaped recipe:
+        id: "infuse_spark:emerald_effect"
+        result: {Spork3r::Infuse::Items::Support::Emerald}
+        shape: "aba", "bcb", "aba"
+        category: "misc"
+        ingredients:
+            set ingredient of "a" to emerald block
+            set ingredient of "b" to bell
+            set ingredient of "c" to end crystal
+
+    set {Spork3r::Infuse::Items::Support::Fire} to potion of unbreaking 1 named "&6Fire Effect" with lore "&9Support Effect" and "&7Grants &oFire Resistance" and "&7&o+1 Attack Damage while &6on fire" and "" and "&9Spark Ability" and "&7Regenerate health while &6on fire" and "" and "&8Duration: &330s &8Cooldown: &360s"  with all item flags
+    color {Spork3r::Infuse::Items::Support::Fire} orange
+    register shaped recipe:
+        id: "infuse_spark:fire_effect"
+        result: {Spork3r::Infuse::Items::Support::Fire}
+        shape: "aba", "bcb", "aba"
+        category: "misc"
+        ingredients:
+            set ingredient of "a" to magma cream
+            set ingredient of "b" to fire charge
+            set ingredient of "c" to crying obsidian
+
+    set {Spork3r::Infuse::Items::Support::Ocean} to potion of unbreaking 1 named "&3Ocean Effect" with lore "&9Support Effect" and "&7Grants &oDolphin's Grace" and "&7Grants &oConduit Power" and "&7&o+2 Attack Damage while &9in water" and "" and "&9Spark Ability" and "&7Regenerate health while &9in water" and "" and "&8Duration: &330s &8Cooldown: &360s" with all item flags
+    color {Spork3r::Infuse::Items::Support::Ocean} blue
+    register shaped recipe:
+        id: "infuse_spark:ocean_effect"
+        result: {Spork3r::Infuse::Items::Support::Ocean}
+        shape: "aba", "bcb", "aba"
+        category: "misc"
+        ingredients:
+            set ingredient of "a" to prismarine shard
+            set ingredient of "b" to sea lantern
+            set ingredient of "c" to heart of the sea
+
+    set {Spork3r::Infuse::Items::Support::Speed} to potion of unbreaking 1 named "&bSpeed Effect" with lore "&9Support Effect" and "&7Grants &oSpeed II" and "" and "&9Spark Ability" and "&7Dash forward" and "" and "&8Duration: &31s &8Cooldown: &315s"  with all item flags
+    color {Spork3r::Infuse::Items::Support::Speed} cyan
+    register shaped recipe:
+        id: "infuse_spark:speed_effect"
+        result: {Spork3r::Infuse::Items::Support::Speed}
+        shape: "aba", "bcb", "aba"
+        category: "misc"
+        ingredients:
+            set ingredient of "a" to sugar
+            set ingredient of "b" to amethyst shard
+            set ingredient of "c" to rabbit foot
+            
+
+    set {Spork3r::Infuse::Items::Primary::Feather} to potion of unbreaking 1 named "&7Feather Effect" with lore "&9Primary Effect" and "&7No fall damage" and "&7Can run on &cWater&7, &6Lava&7, &3Ice&7, & &3Snow" and "" and "&9Spark Ability" and "&7Burst of &oLevitation XXX" and "" and "&8Duration: &32s &8Cooldown: &330s"  with all item flags
+    color {Spork3r::Infuse::Items::Primary::Feather} gray
+    register shaped recipe:
+        id: "infuse_spark:feather_effect"
+        result: {Spork3r::Infuse::Items::Primary::Feather}
+        shape: "aba", "cdc", "aba"
+        category: "misc"
+        ingredients:
+            set ingredient of "a" to feather
+            set ingredient of "b" to goat horn
+            set ingredient of "c" to vex armor trim smithing template
+            set ingredient of "d" to trident
+
+    set {Spork3r::Infuse::Items::Primary::Frost} to potion of unbreaking 1 named "&3Frost Effect" with lore "&9Primary Effect" and "&7&oSpeed X &7on &3Ice &7& &oSpeed III &7on &bSnow" and "" and "&9Spark Ability" and "&7Inflict &b&oFrostbite &7on attacked enemies" and "&7&o+3 Attack damage on frosted enemies" and "" and "&8Duration: &330s &8Cooldown: &390s"  with all item flags
+    color {Spork3r::Infuse::Items::Primary::Frost} cyan
+    register shaped recipe:
+        id: "infuse_spark:frost_effect"
+        result: {Spork3r::Infuse::Items::Primary::Frost}
+        shape: "aba", "cdc", "aba"
+        category: "misc"
+        ingredients:
+            set ingredient of "a" to blue ice
+            set ingredient of "b" to powder snow bucket
+            set ingredient of "c" to tide armor trim smithing template
+            set ingredient of "d" to conduit
+
+    set {Spork3r::Infuse::Items::Primary::Haste} to potion of unbreaking 1 named "&6Haste Effect" with lore "&9Primary Effect" and "&7Grants &oHaste II &7and &7&oFortune IV" and "" and "&9Spark Ability" and "&7Upgrades &oHaste II &7to &oInstamine" and "" and "&8Duration: &345s &8Cooldown: &375s"  with all item flags
+    color {Spork3r::Infuse::Items::Primary::Haste} yellow
+    register shaped recipe:
+        id: "infuse_spark:haste_effect"
+        result: {Spork3r::Infuse::Items::Primary::Haste}
+        shape: "aba", "cdc", "aea"
+        category: "misc"
+        ingredients:
+            set ingredient of "a" to diamond block 
+            set ingredient of "b" to netherite pickaxe
+            set ingredient of "c" to gold block
+            set ingredient of "d" to beacon
+            set ingredient of "e" to dune armor trim smithing template
+            
+    set {Spork3r::Infuse::Items::Primary::Heart} to potion of unbreaking 1 named "&4Heart Effect" with lore "&9Primary Effect" and "&7Grants &c15 total hearts" and "" and "&9Spark Ability" and "&7Grants &c20 total hearts" and "" and "&8Duration: &330s &8Cooldown: &360s"  with all item flags
+    color {Spork3r::Infuse::Items::Primary::Heart} red
+    register shaped recipe:
+        id: "infuse_spark:heart_effect"
+        result: {Spork3r::Infuse::Items::Primary::Heart}
+        shape: "aba", "bcb", "aba"
+        category: "misc"
+        ingredients:
+            set ingredient of "a" to totem of undying
+            set ingredient of "b" to diamond block
+            set ingredient of "c" to enchanted golden apple
+            
+    set {Spork3r::Infuse::Items::Primary::Invisibility} to potion of unbreaking 1 named "&7Invisibility Effect" with lore "&9Primary Effect" and "&7Grants &oInvisibility" and "" and "&9Spark Ability" and "&7Hides armor and particles" and "" and "&8Duration: &320s &8Cooldown: &3645s"  with all item flags
+    color {Spork3r::Infuse::Items::Primary::Invisibility} purple
+    register shaped recipe:
+        id: "infuse_spark:invisibility_effect"
+        result: {Spork3r::Infuse::Items::Primary::Invisibility}
+        shape: "aba", "bcb", "aba"
+        category: "misc"
+        ingredients:
+            set ingredient of "a" to eye of ender
+            set ingredient of "b" to shrieker
+            set ingredient of "c" to recovery compass
+
+    set {Spork3r::Infuse::Items::Primary::Regeneration} to potion of unbreaking 1 named "&4Regeneration Effect" with lore "&9Primary Effect" and "&7Grants &oRegeneration II &7when attacking enemies" and "" and "&9Spark Ability" and "&7Regenerate self and teammates in a 16 block radius" and "" and "&8Duration: &315s &8Cooldown: &3150s"  with all item flags
+    color {Spork3r::Infuse::Items::Primary::Regeneration} red
+    register shaped recipe:
+        id: "infuse_spark:regeneration_effect"
+        result: {Spork3r::Infuse::Items::Primary::Regeneration}
+        shape: "abc", "ded", "cba"
+        category: "misc"
+        ingredients:
+            set ingredient of "a" to golden apple
+            set ingredient of "b" to honey bottle
+            set ingredient of "c" to totem of undying
+            set ingredient of "d" to suspicious stew
+            set ingredient of "e" to cake
+
+    set {Spork3r::Infuse::Items::Primary::Strength} to potion of unbreaking 1 named "&cStrength Effect" with lore "&9Primary Effect" and "&7Grants &oAttack +2" and "" and "&9Spark Ability" and "&7Upgrades &oStrength I &7to &oAttack +3.5" and "" and "&8Duration: &330s &8Cooldown: &3120s"  with all item flags
+    color {Spork3r::Infuse::Items::Primary::Strength} dark red
+    register shaped recipe:
+        id: "infuse_spark:strength_effect"
+        result: {Spork3r::Infuse::Items::Primary::Strength}
+        shape: "aba", "cdc", "aba"
+        category: "misc"
+        ingredients:
+            set ingredient of "a" to nether wart
+            set ingredient of "b" to wither skeleton skull
+            set ingredient of "c" to netherite sword
+            set ingredient of "d" to lodestone
+
+    set {Spork3r::Infuse::Items::Primary::Thunder} to potion of unbreaking 1 named "&3Thunder Effect" with lore "&9Primary Effect" and "&7Strikes attacked players with &6Lightning" and "" and "&9Spark Ability" and "&7Smite enemies within a 16 block radius" and "" and "&8Duration: &310s &8Cooldown: &3120s"  with all item flags
+    color {Spork3r::Infuse::Items::Primary::Thunder} yellow
+    register shaped recipe:
+        id: "infuse_spark:thunder_effect"
+        result: {Spork3r::Infuse::Items::Primary::Thunder}
+        shape: "aba", "cdc", "aba"
+        category: "misc"
+        ingredients:
+            set ingredient of "a" to lightning rod
+            set ingredient of "b" to silence armor trim smithing template
+            set ingredient of "c" to trident
+            set ingredient of "d" to creeper skull
+    
+
+every 5 ticks:
+    loop all players:
+        Spork3rInfuseIconSetAndPassive(loop-player)
+        Spork3rInfuseCooldown(loop-player)
+        if {Spork3r::Infuse::Primary::Active::%{_p}'s uuid%} is true:
+            if {Spork3r::Infuse::Support::Active::%{_p}'s uuid%} is true:
+                send action bar "%{Spork3r::Infuse::Primary::Show::Active::%loop-player's uuid%}% %{Spork3r::Infuse::ActionBar::Primary::%loop-player's uuid%}% %{Spork3r::Infuse::ActionBar::Support::%loop-player's uuid%}% %{Spork3r::Infuse::Support::Show::Active::%loop-player's uuid%}%" to loop-player
+            else:
+                send action bar "%{Spork3r::Infuse::Primary::Show::Active::%loop-player's uuid%}% %{Spork3r::Infuse::ActionBar::Primary::%loop-player's uuid%}% %{Spork3r::Infuse::ActionBar::Support::%loop-player's uuid%}% %{Spork3r::Infuse::Support::Show::%loop-player's uuid%}%" to loop-player
+        else if {Spork3r::Infuse::Support::Active::%{_p}'s uuid%} is true:
+            send action bar "%{Spork3r::Infuse::Primary::Show::%loop-player's uuid%}% %{Spork3r::Infuse::ActionBar::Primary::%loop-player's uuid%}% %{Spork3r::Infuse::ActionBar::Support::%loop-player's uuid%}% %{Spork3r::Infuse::Support::Show::Active::%loop-player's uuid%}%" to loop-player
+        else:
+            send action bar "%{Spork3r::Infuse::Primary::Show::%loop-player's uuid%}% %{Spork3r::Infuse::ActionBar::Primary::%loop-player's uuid%}% %{Spork3r::Infuse::ActionBar::Support::%loop-player's uuid%}% %{Spork3r::Infuse::Support::Show::%loop-player's uuid%}%" to loop-player
+
+function Spork3rInfuseIconSetAndPassive(p: player):
+    if {Spork3r::Infuse::Primary::Active::%{_p}'s uuid%} is true:
+        if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 0:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&f&l"
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 1:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&4&l"
+            Spork3rInfusePrimaryStrengthEquipped({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 2:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&5&l"
+            Spork3rInfusePrimaryHeartEquipped({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 3:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&6&l"
+            Spork3rInfusePrimaryHasteEquipped({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 4:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&5&l"
+            Spork3rInfusePrimaryInvisibilityEquipped({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 5:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&2&l"
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 6:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&b&l"
+            Spork3rInfusePrimaryFrostEquipped({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 7:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&9&l"
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 8:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&c&l"
+    else:
+        if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is not 2:
+            if {Spork3r::Infuse::Primary::Heart::Health::%{_p}'s uuid%} is true:
+                remove 10 from {_p}'s minecraft:generic.max_health attribute
+                delete {Spork3r::Infuse::Primary::Heart::Health::%{_p}'s uuid%}
+        if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 0:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&f&l"
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 1:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&f&l"
+            Spork3rInfusePrimaryStrengthEquipped({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 2:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&f&l"
+            Spork3rInfusePrimaryHeartEquipped({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 3:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&f&l"
+            Spork3rInfusePrimaryHasteEquipped({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 4:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&f&l"
+            Spork3rInfusePrimaryInvisibilityEquipped({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 5:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&f&l"
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 6:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&f&l"
+            Spork3rInfusePrimaryFrostEquipped({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 7:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&f&l"
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 8:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&f&l"
+
+    if {Spork3r::Infuse::Support::Active::%{_p}'s uuid%} is true:
+        if {Spork3r::Infuse::Support::%{_p}'s uuid%} is 0:
+            set {Spork3r::Infuse::ActionBar::Support::%{_p}'s uuid%} to "&f&l"
+        else if {Spork3r::Infuse::Support::%{_p}'s uuid%} is 1:
+            set {Spork3r::Infuse::ActionBar::Support::%{_p}'s uuid%} to "&9&l"
+            Spork3rInfuseSupportOceanEquipped({_p})
+        else if {Spork3r::Infuse::Support::%{_p}'s uuid%} is 2:
+            set {Spork3r::Infuse::ActionBar::Support::%{_p}'s uuid%} to "&6&l"
+        else if {Spork3r::Infuse::Support::%{_p}'s uuid%} is 3:
+            set {Spork3r::Infuse::ActionBar::Support::%{_p}'s uuid%} to "&a&l"
+            Spork3rInfuseSupportEmeraldEquipped({_p})
+        else if {Spork3r::Infuse::Support::%{_p}'s uuid%} is 4:
+            set {Spork3r::Infuse::ActionBar::Support::%{_p}'s uuid%} to "&e&l"
+            Spork3rInfuseSupportSpeedEquipped({_p})
+    else:
+        if {Spork3r::Infuse::Support::%{_p}'s uuid%} is 0:
+            set {Spork3r::Infuse::ActionBar::Support::%{_p}'s uuid%} to "&f&l"
+        else if {Spork3r::Infuse::Support::%{_p}'s uuid%} is 1:
+            set {Spork3r::Infuse::ActionBar::Support::%{_p}'s uuid%} to "&f&l"
+            Spork3rInfuseSupportOceanEquipped({_p})
+        else if {Spork3r::Infuse::Support::%{_p}'s uuid%} is 2:
+            set {Spork3r::Infuse::ActionBar::Support::%{_p}'s uuid%} to "&f&l"
+        else if {Spork3r::Infuse::Support::%{_p}'s uuid%} is 3:
+            set {Spork3r::Infuse::ActionBar::Support::%{_p}'s uuid%} to "&f&l"
+            Spork3rInfuseSupportEmeraldEquipped({_p})
+        else if {Spork3r::Infuse::Support::%{_p}'s uuid%} is 4:
+            set {Spork3r::Infuse::ActionBar::Support::%{_p}'s uuid%} to "&f&l"
+            Spork3rInfuseSupportSpeedEquipped({_p})
+
+on join:
+    wait 1 tick
+    send the resource pack from "URL" with hash "hash" to the player
+    set {Spork3r::Infuse::Primary::Active::%player's uuid%} to false
+    if {Spork3r::Infuse::Primary::%player's uuid%} is not set:
+        set {Spork3r::Infuse::Primary::%player's uuid%} to 0
+    if {Spork3r::Infuse::Support::%player's uuid%} is not set:
+        set {Spork3r::Infuse::Support::%player's uuid%} to 0
+    set {Spork3r::Infuse::Support::Active::%player's uuid%} to false
+    wait 5 Seconds
+    if {Spork3r::Infuse::Joined::%player's uuid%} is not true:
+        send "&d&lINFUSE &7&l>> &fMake sure to do ""/infuse settings control_set"" to set how you activate your abilities." to player
+        set {Spork3r::Infuse::Support::%player's uuid%} to a random integer between 1 and 4
+    set {Spork3r::Infuse::Joined::%player's uuid%} to true
+
+on death of player:
+    if {Spork3r::Infuse::Support::%victim's uuid%} is not 0:
+        if {Spork3r::Infuse::Support::%victim's uuid%} is 1:
+            drop {Spork3r::Infuse::Items::Support::Ocean}
+        else if {Spork3r::Infuse::Support::%victim's uuid%} is 2:
+            drop {Spork3r::Infuse::Items::Support::Fire}
+        else if {Spork3r::Infuse::Support::%victim's uuid%} is 3:
+            drop {Spork3r::Infuse::Items::Support::Emerald}
+        else if {Spork3r::Infuse::Support::%victim's uuid%} is 4:
+            drop {Spork3r::Infuse::Items::Support::Speed}
+        set {Spork3r::Infuse::Support::%victim's uuid%} to 0
+
+    if {Spork3r::Infuse::Primary::%victim's uuid%} is not 0:
+        if {Spork3r::Infuse::Primary::%victim's uuid%} is 1:
+            drop {Spork3r::Infuse::Items::Primary::Strength}
+        else if {Spork3r::Infuse::Primary::%victim's uuid%} is 2:
+            drop {Spork3r::Infuse::Items::Primary::Heart}
+        else if {Spork3r::Infuse::Primary::%victim's uuid%} is 3:
+            drop {Spork3r::Infuse::Items::Primary::Haste}
+        else if {Spork3r::Infuse::Primary::%victim's uuid%} is 4:
+            drop {Spork3r::Infuse::Items::Primary::Invisibility}
+        else if {Spork3r::Infuse::Primary::%victim's uuid%} is 5:
+            drop {Spork3r::Infuse::Items::Primary::Feather}
+        else if {Spork3r::Infuse::Primary::%victim's uuid%} is 6:
+            drop {Spork3r::Infuse::Items::Primary::Frost}
+        else if {Spork3r::Infuse::Primary::%victim's uuid%} is 7:
+            drop {Spork3r::Infuse::Items::Primary::Thunder}
+        else if {Spork3r::Infuse::Primary::%victim's uuid%} is 8:
+            drop {Spork3r::Infuse::Items::Primary::Regeneration}
+        set {Spork3r::Infuse::Primary::%victim's uuid%} to 0

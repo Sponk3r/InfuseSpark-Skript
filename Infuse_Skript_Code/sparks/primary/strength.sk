@@ -1,0 +1,47 @@
+
+#
+# --------------------------------------------------------------------- #
+#
+#                   Infuse Skript Made By Spork3r
+#          Infuse SMP Plugin Revamped Plugin is by Infuse Team
+#               So shout outs to them for the plugin
+#
+#                       Sub to Spork3r Frfr
+#
+#           if editing code make sure to not remove this part
+#
+# --------------------------------------------------------------------- #
+#
+
+function Spork3rInfusePrimaryStrengthEquipped(p: player):
+    if {Spork3r::Infuse::Primary::strength::AttackDamageSpark::%{_p}'s uuid%} is true:
+        set {Spork3r::Infuse::Primary::strength::AttackDamageRevSpark::%{_p}'s uuid%} to true
+        add 1.5 to {_p}'s attack damage attribute
+    set {Spork3r::Infuse::Primary::strength::AttackDamageRev::%{_p}'s uuid%} to true
+    add 2 to {_p}'s attack damage attribute
+    wait 4 ticks
+    if {Spork3r::Infuse::Primary::strength::AttackDamageRevSpark::%{_p}'s uuid%} is true:
+        remove 1.5 from {_p}'s attack damage attribute
+    remove 2 from {_p}'s attack damage attribute
+    if {_p} is online:
+        delete {Spork3r::Infuse::Primary::strength::AttackDamageRev::%{_p}'s uuid%}
+        delete {Spork3r::Infuse::Primary::strength::AttackDamageRevSpark::%{_p}'s uuid%}
+on join:
+    if {Spork3r::Infuse::Primary::strength::AttackDamageRev::%player's uuid%} is true:
+        wait 1 tick
+        if {Spork3r::Infuse::Primary::strength::AttackDamageRevSpark::%player's uuid%} is true:
+            remove 1.5 from player's attack damage attribute
+            delete {Spork3r::Infuse::Primary::strength::AttackDamageRevSpark::%player's uuid%}
+        remove 2 from player's attack damage attribute
+        delete {Spork3r::Infuse::Primary::strength::AttackDamageRev::%player's uuid%}
+
+function Spork3rInfusePrimaryStrengthSpark(p: player):
+    set {Spork3r::Infuse::Primary::Active::%{_p}'s uuid%} to true
+    set {Spork3r::Infuse::Primary::Seconds::%{_p}'s uuid%} to 30
+    set {Spork3r::Infuse::Primary::Minutes::%{_p}'s uuid%} to 0
+    set {Spork3r::Infuse::Primary::strength::AttackDamageSpark::%{_p}'s uuid%} to true
+    wait 30 second
+    delete {Spork3r::Infuse::Primary::strength::AttackDamageSpark::%{_p}'s uuid%}
+    set {Spork3r::Infuse::Primary::Active::%{_p}'s uuid%} to false
+    set {Spork3r::Infuse::Primary::Seconds::%{_p}'s uuid%} to 0
+    set {Spork3r::Infuse::Primary::Minutes::%{_p}'s uuid%} to 2

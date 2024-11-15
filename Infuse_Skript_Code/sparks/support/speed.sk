@@ -1,0 +1,27 @@
+
+#
+# --------------------------------------------------------------------- #
+#
+#                   Infuse Skript Made By Spork3r
+#          Infuse SMP Plugin Revamped Plugin is by Infuse Team
+#               So shout outs to them for the plugin
+#
+#                       Sub to Spork3r Frfr
+#
+#           if editing code make sure to not remove this part
+#
+# --------------------------------------------------------------------- #
+#
+
+function Spork3rInfuseSupportSpeedEquipped(p: player):
+    apply speed 2 without particles to {_p} for 2 seconds replacing the existing effect
+
+function Spork3rInfuseSupportSpeedSpark(p: player):
+    set {Spork3r::Infuse::Support::Active::%{_p}'s uuid%} to true
+    set {Spork3r::Infuse::Support::Seconds::%{_p}'s uuid%} to 1
+    set {Spork3r::Infuse::Support::Minutes::%{_p}'s uuid%} to 0
+    push {_p} forward at speed 2
+    wait 1 second
+    set {Spork3r::Infuse::Support::Active::%{_p}'s uuid%} to false
+    set {Spork3r::Infuse::Support::Seconds::%{_p}'s uuid%} to 15
+    set {Spork3r::Infuse::Support::Minutes::%{_p}'s uuid%} to 0

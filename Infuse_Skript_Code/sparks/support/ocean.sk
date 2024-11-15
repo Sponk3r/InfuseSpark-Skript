@@ -1,0 +1,42 @@
+
+#
+# --------------------------------------------------------------------- #
+#
+#                   Infuse Skript Made By Spork3r
+#          Infuse SMP Plugin Revamped Plugin is by Infuse Team
+#               So shout outs to them for the plugin
+#
+#                       Sub to Spork3r Frfr
+#
+#           if editing code make sure to not remove this part
+#
+# --------------------------------------------------------------------- #
+#
+
+function Spork3rInfuseSupportOceanEquipped(p: player):
+    apply dolphins grace 1 without particles to {_p} for 2 seconds replacing the existing effect
+    apply conduit power 1 without particles to {_p} for 2 seconds replacing the existing effect
+    if block at {_p} is water:
+        set {Spork3r::Infuse::Support::ocean::AttackDamageRev::%{_p}'s uuid%} to true
+        add 2 to {_p}'s attack damage attribute
+        wait 4 ticks
+        remove 2 from {_p}'s attack damage attribute
+        if {_p} is online:
+            delete {Spork3r::Infuse::Support::ocean::AttackDamageRev::%{_p}'s uuid%}
+on join:
+    if {Spork3r::Infuse::Support::ocean::AttackDamageRev::%player's uuid%} is true:
+        wait 1 tick
+        remove 2 from player's attack damage attribute
+        delete {Spork3r::Infuse::Support::ocean::AttackDamageRev::%player's uuid%}
+
+function Spork3rInfuseSupportOceanSpark(p: player):
+    set {Spork3r::Infuse::Support::Active::%{_p}'s uuid%} to true
+    set {Spork3r::Infuse::Support::Seconds::%{_p}'s uuid%} to 30
+    set {Spork3r::Infuse::Support::Minutes::%{_p}'s uuid%} to 0
+    loop 60 times:
+        if block at {_p} is water:
+            apply regeneration 1 without particles whilst hiding the potion icon to {_p} for 2 seconds replacing the existing effect
+        wait 0.5 Seconds
+    set {Spork3r::Infuse::Support::Active::%{_p}'s uuid%} to false
+    set {Spork3r::Infuse::Support::Seconds::%{_p}'s uuid%} to 0
+    set {Spork3r::Infuse::Support::Minutes::%{_p}'s uuid%} to 1

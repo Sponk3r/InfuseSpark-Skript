@@ -1,0 +1,27 @@
+
+#
+# --------------------------------------------------------------------- #
+#
+#                   Infuse Skript Made By Spork3r
+#          Infuse SMP Plugin Revamped Plugin is by Infuse Team
+#               So shout outs to them for the plugin
+#
+#                       Sub to Spork3r Frfr
+#
+#           if editing code make sure to not remove this part
+#
+# --------------------------------------------------------------------- #
+#
+
+function Spork3rInfuseSupportEmeraldEquipped(p: player):
+    apply hero of the village 3 without particles to {_p} for 2 seconds replacing the existing effect
+
+function Spork3rInfuseSupportEmeraldSpark(p: player):
+    set {Spork3r::Infuse::Support::Active::%{_p}'s uuid%} to true
+    set {Spork3r::Infuse::Support::Seconds::%{_p}'s uuid%} to 30
+    set {Spork3r::Infuse::Support::Minutes::%{_p}'s uuid%} to 1
+    apply hero of the village 200 without particles to {_p} for 90 seconds replacing the existing effect
+    wait 90 seconds
+    set {Spork3r::Infuse::Support::Active::%{_p}'s uuid%} to false
+    set {Spork3r::Infuse::Support::Seconds::%{_p}'s uuid%} to 0
+    set {Spork3r::Infuse::Support::Minutes::%{_p}'s uuid%} to 5

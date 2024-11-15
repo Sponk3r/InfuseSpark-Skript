@@ -1,0 +1,39 @@
+
+#
+# --------------------------------------------------------------------- #
+#
+#                   Infuse Skript Made By Spork3r
+#          Infuse SMP Plugin Revamped Plugin is by Infuse Team
+#               So shout outs to them for the plugin
+#
+#                       Sub to Spork3r Frfr
+#
+#           if editing code make sure to not remove this part
+#
+# --------------------------------------------------------------------- #
+#
+
+function Spork3rInfusePrimaryThunderSpark(p: player):
+    set {Spork3r::Infuse::Primary::Active::%{_p}'s uuid%} to true
+    set {Spork3r::Infuse::Primary::Seconds::%{_p}'s uuid%} to 10
+    set {Spork3r::Infuse::Primary::Minutes::%{_p}'s uuid%} to 0
+    loop 10 times:
+        loop all entities within 16 blocks around {_p}:
+            if loop-entity is not {_p}:
+                if {Spork3r::Infuse::TrustList::%{_p}'s uuid%::%loop-entity's uuid%} is not true:
+                    strike lightning at the loop-entity
+        loop 4 times:
+            wait 0.25 seconds
+    set {Spork3r::Infuse::Primary::Active::%{_p}'s uuid%} to false
+    set {Spork3r::Infuse::Primary::Seconds::%{_p}'s uuid%} to 20
+    set {Spork3r::Infuse::Primary::Minutes::%{_p}'s uuid%} to 1
+
+on damage by player:
+    if {Spork3r::Infuse::Primary::%attacker's uuid%} is 7:
+        if hit is critical:
+            wait 1 tick
+            strike lightning at the victim
+on damage of player:
+    if {Spork3r::Infuse::Primary::%victim's uuid%} is 7:
+        if damage cause is lightning:
+            cancel event

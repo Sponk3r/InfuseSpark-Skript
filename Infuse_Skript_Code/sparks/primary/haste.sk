@@ -1,0 +1,33 @@
+
+#
+# --------------------------------------------------------------------- #
+#
+#                   Infuse Skript Made By Spork3r
+#          Infuse SMP Plugin Revamped Plugin is by Infuse Team
+#               So shout outs to them for the plugin
+#
+#                       Sub to Spork3r Frfr
+#
+#           if editing code make sure to not remove this part
+#
+# --------------------------------------------------------------------- #
+#
+
+function Spork3rInfusePrimaryHasteEquipped(p: player):
+    apply haste 2 without particles to {_p} for 2 seconds replacing the existing effect
+
+function Spork3rInfusePrimaryHasteSpark(p: player):
+    set {Spork3r::Infuse::Primary::Active::%{_p}'s uuid%} to true
+    set {Spork3r::Infuse::Primary::Seconds::%{_p}'s uuid%} to 45
+    set {Spork3r::Infuse::Primary::Minutes::%{_p}'s uuid%} to 0
+    apply haste 255 without particles to {_p} for 45 seconds replacing the existing effect
+    wait 45 second
+    set {Spork3r::Infuse::Primary::Active::%{_p}'s uuid%} to false
+    set {Spork3r::Infuse::Primary::Seconds::%{_p}'s uuid%} to 15
+    set {Spork3r::Infuse::Primary::Minutes::%{_p}'s uuid%} to 1
+on break:
+    if {Spork3r::Infuse::Primary::%player's uuid%} is 3:
+        if event-block is diamond ore or deepslate diamond ore or coal ore or deepslate coal ore or gold ore or deepslate gold ore or iron ore or deepslate iron ore or emerald ore or deepslate emerald ore or lapis ore or deepslate lapis ore or redstone ore or deepslate redstone ore or copper ore or deepslate copper ore or nether gold ore or nether quartz ore or amethyst cluster:
+            if player's gamemode is not creative:
+                if player's held item is not enchanted with silk touch:
+                    drop drops of block

@@ -1,0 +1,93 @@
+
+#
+# --------------------------------------------------------------------- #
+#
+#                   Infuse Skript Made By Spork3r
+#          Infuse SMP Plugin Revamped Plugin is by Infuse Team
+#               So shout outs to them for the plugin
+#
+#                       Sub to Spork3r Frfr
+#
+#           if editing code make sure to not remove this part
+#
+# --------------------------------------------------------------------- #
+#
+
+function Spork3rInfuseAbilitySupport(p: player):
+    if {Spork3r::Infuse::Support::%{_p}'s uuid%} is not 0:
+        if {Spork3r::Infuse::Support::%{_p}'s uuid%} is 1:
+            if {Spork3r::Infuse::Support::Show::%uuid of {_p}%} is "      ":
+                play sound "minecraft:block.beacon.power_select" with volume 1 with pitch 2 to {_p}
+                Spork3rInfuseSupportOceanSpark({_p})
+        else if {Spork3r::Infuse::Support::%{_p}'s uuid%} is 2:
+            if {Spork3r::Infuse::Support::Show::%uuid of {_p}%} is "      ":
+                play sound "minecraft:block.beacon.power_select" with volume 1 with pitch 2 to {_p}
+                Spork3rInfuseSupportFireSpark({_p})
+        else if {Spork3r::Infuse::Support::%{_p}'s uuid%} is 3:
+            if {Spork3r::Infuse::Support::Show::%uuid of {_p}%} is "      ":
+                play sound "minecraft:block.beacon.power_select" with volume 1 with pitch 2 to {_p}
+                Spork3rInfuseSupportEmeraldSpark({_p})
+        else if {Spork3r::Infuse::Support::%{_p}'s uuid%} is 4:
+            if {Spork3r::Infuse::Support::Show::%uuid of {_p}%} is "      ":
+                play sound "minecraft:block.beacon.power_select" with volume 1 with pitch 2 to {_p}
+                Spork3rInfuseSupportSpeedSpark({_p})
+
+function Spork3rInfuseAbilityPrimary(p: player):
+    if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is not 0:
+        if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 1:
+            if {Spork3r::Infuse::Primary::Show::%uuid of {_p}%} is "      ":
+                play sound "minecraft:block.beacon.power_select" with volume 1 with pitch 2 to {_p}
+                Spork3rInfusePrimaryStrengthSpark({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 2:
+            if {Spork3r::Infuse::Primary::Show::%uuid of {_p}%} is "      ":
+                play sound "minecraft:block.beacon.power_select" with volume 1 with pitch 2 to {_p}
+                Spork3rInfusePrimaryHeartSpark({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 3:
+            if {Spork3r::Infuse::Primary::Show::%uuid of {_p}%} is "      ":
+                play sound "minecraft:block.beacon.power_select" with volume 1 with pitch 2 to {_p}
+                Spork3rInfusePrimaryHasteSpark({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 4:
+            if {Spork3r::Infuse::Primary::Show::%uuid of {_p}%} is "      ":
+                play sound "minecraft:block.beacon.power_select" with volume 1 with pitch 2 to {_p}
+                Spork3rInfusePrimaryInvisibilitySpark({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 5:
+            if {Spork3r::Infuse::Primary::Show::%uuid of {_p}%} is "      ":
+                play sound "minecraft:block.beacon.power_select" with volume 1 with pitch 2 to {_p}
+                Spork3rInfusePrimaryFeatherSpark({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 6:
+            if {Spork3r::Infuse::Primary::Show::%uuid of {_p}%} is "      ":
+                play sound "minecraft:block.beacon.power_select" with volume 1 with pitch 2 to {_p}
+                Spork3rInfusePrimaryFrostSpark({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 7:
+            if {Spork3r::Infuse::Primary::Show::%uuid of {_p}%} is "      ":
+                play sound "minecraft:block.beacon.power_select" with volume 1 with pitch 2 to {_p}
+                Spork3rInfusePrimaryThunderSpark({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 8:
+            if {Spork3r::Infuse::Primary::Show::%uuid of {_p}%} is "      ":
+                play sound "minecraft:block.beacon.power_select" with volume 1 with pitch 2 to {_p}
+                Spork3rInfusePrimaryRegenerationSpark({_p})
+
+
+#right click
+
+on right click:
+    if {Spork3r::Settings::ControlSet::%player's uuid%} is 2:
+        if player is sneaking:
+            cancel event
+            Spork3rInfuseAbilityPrimary(player)
+on left click:
+    if {Spork3r::Settings::ControlSet::%player's uuid%} is 2:
+        if player is sneaking:
+            Spork3rInfuseAbilitySupport(player)
+
+
+# swap hand
+
+on swap item:
+    if {Spork3r::Settings::ControlSet::%player's uuid%} is 1:
+        cancel event
+        if player is sneaking:
+            Spork3rInfuseAbilityPrimary(player)
+        else:
+            Spork3rInfuseAbilitySupport(player)
+        

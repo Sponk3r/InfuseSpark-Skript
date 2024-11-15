@@ -1,0 +1,65 @@
+
+#
+# --------------------------------------------------------------------- #
+#
+#                   Infuse Skript Made By Spork3r
+#          Infuse SMP Plugin Revamped Plugin is by Infuse Team
+#               So shout outs to them for the plugin
+#
+#                       Sub to Spork3r Frfr
+#
+#           if editing code make sure to not remove this part
+#
+# --------------------------------------------------------------------- #
+#
+
+function Spork3rInfuseCooldown(player: player):
+    if {Spork3r::Infuse::Support::Seconds::%uuid of {_player}%} is not set:
+        set {Spork3r::Infuse::Support::Seconds::%uuid of {_player}%} to 0
+    if {Spork3r::Infuse::Support::Minutes::%uuid of {_player}%} is not set:
+        set {Spork3r::Infuse::Support::Minutes::%uuid of {_player}%} to 0
+
+    if {Spork3r::Infuse::Support::Minutes::%uuid of {_player}%} >= 0:
+        if {Spork3r::Infuse::Support::Seconds::%uuid of {_player}%} >= 10:
+            set {Spork3r::Infuse::Support::Show::%uuid of {_player}%} to " %{Spork3r::Infuse::Support::Minutes::%uuid of {_player}%}%:%{Spork3r::Infuse::Support::Seconds::%uuid of {_player}%}%&r"
+        else if {Spork3r::Infuse::Support::Seconds::%uuid of {_player}%} >= 0:
+            set {Spork3r::Infuse::Support::Show::%uuid of {_player}%} to " %{Spork3r::Infuse::Support::Minutes::%uuid of {_player}%}%:0%{Spork3r::Infuse::Support::Seconds::%uuid of {_player}%}%&r"
+        else:
+            if {Spork3r::Infuse::Support::Minutes::%uuid of {_player}%} <= 0:
+                set {Spork3r::Infuse::Support::Show::%uuid of {_player}%} to ""
+            else: 
+                set {Spork3r::Infuse::Support::Show::%uuid of {_player}%} to " %{Spork3r::Infuse::Support::Minutes::%uuid of {_player}%}%:0%{Spork3r::Infuse::Support::Seconds::%uuid of {_player}%}%&r"
+    else:
+        set {Spork3r::Infuse::Support::Show::%uuid of {_player}%} to "      "
+
+
+    if {Spork3r::Infuse::Primary::Seconds::%uuid of {_player}%} is not set:
+        set {Spork3r::Infuse::Primary::Seconds::%uuid of {_player}%} to 0
+    if {Spork3r::Infuse::Primary::Minutes::%uuid of {_player}%} is not set:
+        set {Spork3r::Infuse::Primary::Minutes::%uuid of {_player}%} to 0
+
+    if {Spork3r::Infuse::Primary::Minutes::%uuid of {_player}%} >= 0:
+        if {Spork3r::Infuse::Primary::Seconds::%uuid of {_player}%} >= 10:
+            set {Spork3r::Infuse::Primary::Show::%uuid of {_player}%} to "%{Spork3r::Infuse::Primary::ColorCode::%{_player}'s uuid%}%%{Spork3r::Infuse::Primary::Minutes::%uuid of {_player}%}%:%{Spork3r::Infuse::Primary::Seconds::%uuid of {_player}%}%&r"
+        else if {Spork3r::Infuse::Primary::Seconds::%uuid of {_player}%} >= 0:
+            set {Spork3r::Infuse::Primary::Show::%uuid of {_player}%} to "%{Spork3r::Infuse::Primary::ColorCode::%{_player}'s uuid%}%%{Spork3r::Infuse::Primary::Minutes::%uuid of {_player}%}%:0%{Spork3r::Infuse::Primary::Seconds::%uuid of {_player}%}%&r"
+        else:
+            if {Spork3r::Infuse::Primary::Minutes::%uuid of {_player}%} <= 0:
+                set {Spork3r::Infuse::Primary::Show::%uuid of {_player}%} to ""
+            else: 
+                set {Spork3r::Infuse::Primary::Show::%uuid of {_player}%} to "%{Spork3r::Infuse::Primary::ColorCode::%{_player}'s uuid%}%%{Spork3r::Infuse::Primary::Minutes::%uuid of {_player}%}%:0%{Spork3r::Infuse::Primary::Seconds::%uuid of {_player}%}%&r"
+    else:
+        set {Spork3r::Infuse::Primary::Show::%uuid of {_player}%} to "      "
+
+every 1 second:
+    loop all players:
+
+        remove 1 from {Spork3r::Infuse::Support::Seconds::%uuid of loop-player%}
+        if {Spork3r::Infuse::Support::Seconds::%uuid of loop-player%} <= -1:
+            remove 1 from {Spork3r::Infuse::Support::Minutes::%uuid of loop-player%}
+            set {Spork3r::Infuse::Support::Seconds::%uuid of loop-player%} to 59
+
+        remove 1 from {Spork3r::Infuse::Primary::Seconds::%uuid of loop-player%}
+        if {Spork3r::Infuse::Primary::Seconds::%uuid of loop-player%} <= -1:
+            remove 1 from {Spork3r::Infuse::Primary::Minutes::%uuid of loop-player%}
+            set {Spork3r::Infuse::Primary::Seconds::%uuid of loop-player%} to 59

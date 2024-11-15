@@ -1,0 +1,44 @@
+
+#
+# --------------------------------------------------------------------- #
+#
+#                   Infuse Skript Made By Spork3r
+#          Infuse SMP Plugin Revamped Plugin is by Infuse Team
+#               So shout outs to them for the plugin
+#
+#                       Sub to Spork3r Frfr
+#
+#           if editing code make sure to not remove this part
+#
+# --------------------------------------------------------------------- #
+#
+
+on damage of player:
+    if {Spork3r::Infuse::Support::%victim's uuid%} is 2:
+        if victim is on fire:
+            cancel event
+            if {Spork3r::Infuse::Support::Fire::Spark::%victim's uuid%} is true:
+                apply regeneration 1 without particles whilst hiding the potion icon to victim for 2 seconds replacing the existing effect
+            set {Spork3r::Infuse::Support::fire::AttackDamageRev::%victim's uuid%} to true
+            add 1 to victim's attack damage attribute
+            apply fire resistance 1 without particles to victim for 20 ticks replacing the existing effect
+            wait 20 ticks
+            remove 1 from victim's attack damage attribute
+            if victim is online:
+                delete {Spork3r::Infuse::Support::fire::AttackDamageRev::%victim's uuid%}
+on join:
+    if {Spork3r::Infuse::Support::fire::AttackDamageRev::%player's uuid%} is true:
+        wait 1 tick
+        remove 1 from player's attack damage attribute
+        delete {Spork3r::Infuse::Support::fire::AttackDamageRev::%player's uuid%}
+
+function Spork3rInfuseSupportFireSpark(p: player):
+    set {Spork3r::Infuse::Support::Active::%{_p}'s uuid%} to true
+    set {Spork3r::Infuse::Support::Seconds::%{_p}'s uuid%} to 30
+    set {Spork3r::Infuse::Support::Minutes::%{_p}'s uuid%} to 0
+    set {Spork3r::Infuse::Support::Fire::Spark::%{_p}'s uuid%} to true
+    wait 30 seconds
+    delete {Spork3r::Infuse::Support::Fire::Spark::%{_p}'s uuid%}
+    set {Spork3r::Infuse::Support::Active::%{_p}'s uuid%} to false
+    set {Spork3r::Infuse::Support::Seconds::%{_p}'s uuid%} to 0
+    set {Spork3r::Infuse::Support::Minutes::%{_p}'s uuid%} to 1
