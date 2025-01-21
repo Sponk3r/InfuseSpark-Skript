@@ -23,6 +23,7 @@ function Spork3rInfusePrimaryHeartSpark(p: player):
     set {Spork3r::Infuse::Primary::Seconds::%{_p}'s uuid%} to 30
     set {Spork3r::Infuse::Primary::Minutes::%{_p}'s uuid%} to 0
     add 10 to {_p}'s minecraft:generic.max_health attribute
+    apply instant health 4 without particles to {_p} for 2 seconds
     wait 30 seconds
     remove 10 from {_p}'s minecraft:generic.max_health attribute
     if {_p} is not online:

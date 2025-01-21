@@ -1,0 +1,48 @@
+
+#
+# --------------------------------------------------------------------- #
+#
+#                   Infuse Skript Made By Spork3r
+#                     This Effect added by csgd
+#          Infuse SMP Plugin Revamped Plugin is by Infuse Team
+#               So shout outs to them for the plugin
+#
+#                       Sub to Spork3r Frfr
+#
+#           if editing code make sure to not remove this part
+#
+# --------------------------------------------------------------------- #
+#
+
+function Spork3rInfusePrimaryEnderEquipped(p: player):
+    set {allowDragonBreath} to true
+    loop all players within 20 blocks around {_p}:
+        if loop-players is not {_p}:
+            apply glowing without particles to loop-players for 2 seconds replacing the existing effect
+
+on rightclick:
+    if player's offhand item is dragon breath:
+        allowDragonBreathFN({_p})
+
+function allowDragonBreathFN(p: player):
+    if {allowDragonBreath} is true:
+        remove 1 dragon breath from {_p}'s inventory
+        loop all players within 7 blocks around {_p}:
+            if loop-players is not {_p}:
+                if {Spork3r::Infuse::TrustList::%{_p}'s uuid%::%loop-entity's uuid%} is not true:
+                    apply instant damage without particles to loop-players
+
+function Spork3rInfusePrimaryEnderSpark(p: player):
+    set {Spork3r::Infuse::Primary::Active::%{_p}'s uuid%} to true
+    set {Spork3r::Infuse::Primary::Seconds::%{_p}'s uuid%} to 15
+    set {Spork3r::Infuse::Primary::Minutes::%{_p}'s uuid%} to 0
+    push {_p} forward with force 3
+
+    loop all players in radius 9 of {_p}'s location:
+        if loop-players is not {_p}:
+            if {Spork3r::Infuse::TrustList::%{_p}'s uuid%::%loop-entity's uuid%} is not true:
+                apply instant damage without particles to loop-players for 0.2 seconds
+    wait 15 seconds
+    set {Spork3r::Infuse::Primary::Active::%{_p}'s uuid%} to false
+    set {Spork3r::Infuse::Primary::Seconds::%{_p}'s uuid%} to 45
+    set {Spork3r::Infuse::Primary::Minutes::%{_p}'s uuid%} to 0

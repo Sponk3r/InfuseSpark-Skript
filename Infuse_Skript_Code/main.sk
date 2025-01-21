@@ -167,6 +167,20 @@ on load:
             set ingredient of "c" to trident
             set ingredient of "d" to creeper skull
     
+    set {Spork3r::Infuse::Items::Primary::Ender} to potion of unbreaking 1 named "&5Ender Effect" with lore "&9Primary Effect" and "&7Glows player in 20 block radius." and "Nearby End Crysral will heal you." and "" and "&9Spark Ability" and "&7Dash forward and damage players in your way." and "" and "&8Duration: &315s &8Cooldown: &345s"  with all item flags
+    color {Spork3r::Infuse::Items::Primary::Ender} purple
+    register shaped recipe:
+        id: "infuse_spark:ender_effect"
+        result: {Spork3r::Infuse::Items::Primary::Ender}
+        shape: "aba", "cdc", "aea"
+        category: "misc"
+        ingredients:
+            set ingredient of "a" to dragon breath
+            set ingredient of "b" to dragon head
+            set ingredient of "c" to eye of ender
+            set ingredient of "d" to dragon egg
+            set ingredient of "e" to elytra
+    
 
 every 5 ticks:
     loop all players:
@@ -216,6 +230,10 @@ function Spork3rInfuseIconSetAndPassive(p: player):
         else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 8:
             set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
             set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&c&l"
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 9:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&5"
+            Spork3rInfusePrimaryEnderEquipped({_p})
     else:
         if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is not 2:
             if {Spork3r::Infuse::Primary::Heart::Health::%{_p}'s uuid%} is true:
@@ -253,6 +271,10 @@ function Spork3rInfuseIconSetAndPassive(p: player):
         else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 8:
             set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
             set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&f&l"
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 9:
+            set {Spork3r::Infuse::ActionBar::Primary::%{_p}'s uuid%} to ""
+            set {Spork3r::Infuse::Primary::ColorCode::%{_p}'s uuid%} to "&f&l"
+            Spork3rInfusePrimaryEnderEquipped({_p})
 
     if {Spork3r::Infuse::Support::Active::%{_p}'s uuid%} is true:
         if {Spork3r::Infuse::Support::%{_p}'s uuid%} is 0:
@@ -327,4 +349,6 @@ on death of player:
             drop {Spork3r::Infuse::Items::Primary::Thunder}
         else if {Spork3r::Infuse::Primary::%victim's uuid%} is 8:
             drop {Spork3r::Infuse::Items::Primary::Regeneration}
+        else if {Spork3r::Infuse::Primary::%victim's uuid%} is 9:
+            drop {Spork3r::Infuse::Items::Primary::Ender}
         set {Spork3r::Infuse::Primary::%victim's uuid%} to 0

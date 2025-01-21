@@ -37,6 +37,8 @@ on drink:
             set {Spork3r::Infuse::Primary::%player's uuid%} to 7
         else if {_2ndline} contains "Regeneration II":
             set {Spork3r::Infuse::Primary::%player's uuid%} to 8
+        else if {_2ndline} contains "Glows player in":
+            set {Spork3r::Infuse::Primary::%player's uuid%} to 9
 
     else if lore of event-item contains "&9Support Effect":
         if player's gamemode is not creative:
@@ -82,3 +84,5 @@ function Spork3rInfuseUnequipPrimary(p: player):
         give {Spork3r::Infuse::Items::Primary::Thunder} to {_p}
     else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 8:
         give {Spork3r::Infuse::Items::Primary::Regeneration} to {_p}
+    else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 9:
+        give {Spork3r::Infuse::Items::Primary::Ender} to {_p}

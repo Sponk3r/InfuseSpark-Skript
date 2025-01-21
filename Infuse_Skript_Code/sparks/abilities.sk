@@ -66,6 +66,10 @@ function Spork3rInfuseAbilityPrimary(p: player):
             if {Spork3r::Infuse::Primary::Show::%uuid of {_p}%} is "      ":
                 play sound "minecraft:block.beacon.power_select" with volume 1 with pitch 2 to {_p}
                 Spork3rInfusePrimaryRegenerationSpark({_p})
+        else if {Spork3r::Infuse::Primary::%{_p}'s uuid%} is 9:
+            if {Spork3r::Infuse::Primary::Show::%uuid of {_p}%} is "      ":
+                play sound "minecraft:block.beacon.power_select" with volume 1 with pitch 2 to {_p}
+                Spork3rInfusePrimaryEnderSpark({_p})
 
 
 #right click
